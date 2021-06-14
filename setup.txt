@@ -1,0 +1,20 @@
+1. Make sure these packages are installed in your environment
+For plots:
+matplotlib
+seaborn
+IPython.display
+celluloid
+bg_mpl_style
+
+For data:
+numpy
+pandas
+
+For ML:
+sklearn
+scipy
+
+2. Go into Phase-splitter -> backend -> funcs
+And set 'root_path_results' to the location of 'Phase-splitter/Results' to the path on your computer
+
+3. Cif_finder and diffpy.CMI refinment are not included in this version but can be provided if needed
