@@ -103,7 +103,6 @@ def PCA_plot(Y,folder,n=None):
     df_pca = pca.fit_transform(Y)
     variance_exp_cumsum = pca.explained_variance_ratio_.round(2).cumsum()
 
-    plt.style.use(bg_mpl_style)
     fig, ax = plt.subplots(nrows=1, figsize=(12,9))
     plt.plot(range(1, (n_components + 1)), variance_exp_cumsum, "o", color="firebrick")
     ax.set_xlabel('number of components')
@@ -144,7 +143,6 @@ def NMF_cal(x,Y,folder):
 
     nmf = NMF(n_components=nmf_com, init="random", random_state=0, max_iter=20000)
     W = nmf.fit_transform(Y)
-    plt.style.use(bg_mpl_style)
     fig, ax = plt.subplots(nrows=1, figsize=(12, 9))
     for i in range(np.shape(W)[1]):
         W[:, i] = (W[:, i] - np.min(W[:, i])) / (np.max(W[:, i]) - np.min(W[:, i]))
@@ -172,7 +170,6 @@ def NMF_cal(x,Y,folder):
     return None
 def insitu_plot(x, y,folder):
     print("Making contour plot")
-    plt.style.use(bg_mpl_style)
 
     frame = np.arange(len(y))
     fig, ax = plt.subplots(nrows=1, figsize=(12,9))
@@ -206,7 +203,6 @@ def insitu_plot(x, y,folder):
 
 def Dynamicgif(x,y,folder):
     print("Making gif")
-    plt.style.use(bg_mpl_style)
     fig, ax = plt.subplots(nrows=1, figsize=(12,9))
     camera = Camera(fig)
     for i in range(len(y)):
@@ -245,7 +241,6 @@ def pearson_nmf(x,y,folder):
 
     p_corr = list(chunks(pear_corr, len((y))))
 
-    plt.style.use(bg_mpl_style)
     fig, ax = plt.subplots(nrows=1, figsize=(12, 9))
     for t in range(len(Z)):
         plt.plot(x, Z[t] - 1.5 * t, 'o', lw=3,
@@ -289,8 +284,6 @@ def contour_nmf(x,y,folder):
     for t in range(len(Z)):
         line_list.append(np.argmax(p_corr[t]))
     #line_list.sort()
-
-    plt.style.use(bg_mpl_style)
 
     frame = np.arange(len(y))
     fig, ax = plt.subplots(nrows=1, figsize=(12, 9))
