@@ -12,6 +12,8 @@ Example of in situ data with multiple phase shifts and the resultant components 
 ## Getting Started (with colab)
 Using Phase splitter on your own PDFs is straightforward and does not require anything installed or downloaded to your computer. Follow the instructions in the Colab notebook and try to play around.
 
+[Phase-splitter (Colab)](https://colab.research.google.com/drive/1ypGob83K4NawqdE_1lfQORmObUiLb89c?usp=sharing)
+
 ### Dependencies
 The lite version is made to work on python 3.7 as a notebook with the following libraries:
 
