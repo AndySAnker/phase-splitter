@@ -4,7 +4,6 @@ import sys,os, scipy, glob
 import numpy as np
 import pandas as pd
 import shutil
-from bg_mpl_stylesheet.bg_mpl_stylesheet import bg_mpl_style
 from IPython.display import display,HTML # to show the animation in Jupyter
 from celluloid import Camera # getting the camera
 from sklearn.decomposition import PCA, NMF
