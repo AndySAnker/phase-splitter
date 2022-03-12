@@ -1,5 +1,5 @@
 # Phase splitter
-Welcome to Phase splitter, a non-negative matrix factorization to seperate your different phases in in situ "PDF" data.
+Welcome to Phase splitter, a non-negative matrix factorization to seperate the different phases in an in situ "PDF" data.
 
 ## Description
 
@@ -13,6 +13,11 @@ Example of in situ data with multiple phase shifts and the resultant components 
 Using Phase splitter on your own PDFs is straightforward and does not require anything installed or downloaded to your computer. Follow the instructions in the Colab notebook and try to play around.
 
 [Phase-splitter (Colab)](https://colab.research.google.com/drive/1ypGob83K4NawqdE_1lfQORmObUiLb89c?usp=sharing)
+
+### Installing on own PC
+Download the folder "phase-splitter.zip". 
+
+Set 'root_path_results' to the location of 'phase-splitter/Results' to the path on your computer
 
 ### Dependencies
 The lite version is made to work on python 3.7 as a notebook with the following libraries:
@@ -29,14 +34,10 @@ For statistical analysis:
 
 sklearn, scipy
 
-### Installing
-Download the folder "Phase-splitter".
-
-Set 'root_path_results' to the location of 'Phase-splitter/Results' to the path on your computer
 
 ### Executing program
 
-Follow the notebook file
+Follow the notebook file "phase-splitter.ibpy"
 
 ## Authors
 
