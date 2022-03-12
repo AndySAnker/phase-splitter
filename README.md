@@ -17,7 +17,7 @@ Using Phase splitter on your own PDFs is straightforward and does not require an
 ### Installing on own PC
 Download the folder "phase-splitter.zip". 
 
-Set 'root_path_results' to the location of 'phase-splitter/Results' to the path on your computer
+Set 'root_path_results' in funcs.py to the location of 'phase-splitter/Results' to the path on your computer
 
 ### Dependencies
 The lite version is made to work on python 3.7 as a notebook with the following libraries:
