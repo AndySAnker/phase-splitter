@@ -10,29 +10,30 @@ from sklearn.decomposition import PCA, NMF
 from scipy import stats
 import matplotlib.image as mpimg
 
-root_path_results = '/media/sf_Shardededboi/Bachelorboi/Phase-splitter/Results'
+root_path_results = '/content/phase-splitter/results'
 
 
 def get_in_situ_data(path):
     folder = path.split('/')
     folder = folder[-1]
-    if not os.path.exists(root_path_results+"/"+folder):
-        os.makedirs(root_path_results+"/"+folder)
+    if not os.path.exists(root_path_results+"/"+folder+"_results"):
+        print("Name your results folder:")
+        os.makedirs(root_path_results+"/"+input())
     else:
         print("Folder name already taken")
         print("")
         print("Please rename your data folder or delete the existing folder from Results")
-        answer = (input("Do you want me to delete content in Results/"+folder+": "))
+        answer = (input("Do you want me to delete content in Results/"+folder+"_results"+": "))
         if answer == "yes" or answer == "Yes" or answer == "y" or answer == "Y" or answer == "ja" or answer == "Ja":
             try:
-                dir = os.path.join(root_path_results+"/"+folder)
+                dir = os.path.join(root_path_results+"/"+folder)+"_results"
                 if not os.path.exists(dir):
                     os.mkdir(dir)
                 else:
-                    shutil.rmtree(root_path_results+"/"+folder)
-                    os.mkdir(root_path_results+"/"+folder)
+                    shutil.rmtree(root_path_results+"/"+folder+"_results")
+                    os.mkdir(root_path_results+"/"+folder+"_results")
             except:
-                print("Results/"+folder + " is cleaned")
+                print("Results/"+folder+"_results" + " is cleaned")
         elif answer == "No" or answer == "no" or answer == "n" or answer == "N" or answer == "nej" or answer == "Nej" or answer == "Nein" or answer == "nein":
             print("Nothing happend - files will be saved in the folder with the same name")
         else:
@@ -81,16 +82,16 @@ def gen_corr(y,folder):
     ax = plt.gca()
 
     ax.tick_params(axis='y', labelrotation=0)
-    plt.xlabel('Time [a.u]')
+    plt.xlabel('Frame')
     ax.yaxis.set_label_position("right")
-    plt.ylabel('Time [a.u]')
+    plt.ylabel('Frame')
     plt.gca().invert_yaxis()
     ax.yaxis.tick_right()
     ax.yaxis.set_ticks_position('both')
-    ax.set_xlabel('Time [a.u]')
-    ax.set_ylabel('Time [a.u]')
+    ax.set_xlabel('Frame')
+    ax.set_ylabel('Frame')
     plt.tight_layout()
-    plt.savefig(root_path_results+"/"+folder + "/" + 'Corr_mat.png', format='png', dpi=300)
+    plt.savefig(root_path_results+"/"+folder+"_results" + "/" + 'Corr_mat.png', format='png', dpi=300)
     return None
 
 def PCA_plot(Y,folder,n=None):
@@ -109,11 +110,11 @@ def PCA_plot(Y,folder,n=None):
     ax.set_ylabel('Variance Explained (\%)')  # ^{-1}
     plt.xlim(0, (n_components + 1))
     plt.ylim((variance_exp_cumsum[0] - 0.01), (variance_exp_cumsum[-1] + 0.01))
-    plt.savefig(root_path_results + "/"+folder + "/" + 'PCA.png', format='png', dpi=300)
+    plt.savefig(root_path_results + "/"+folder+"_results" + "/" + 'PCA.png', format='png', dpi=300)
     return None
 def plot(folder):
-    img1 = mpimg.imread(root_path_results + "/"+folder + "/"  + 'Corr_mat.png')
-    img2 = mpimg.imread(root_path_results + "/"+folder + "/"  + 'PCA.png')
+    img1 = mpimg.imread(root_path_results + "/"+folder+"_results" + "/"  + 'Corr_mat.png')
+    img2 = mpimg.imread(root_path_results + "/"+folder+"_results" + "/"  + 'PCA.png')
 
     f = plt.figure(figsize=(30, 12))
     ax = f.add_subplot(121)
@@ -135,7 +136,7 @@ def phase_estimation(y):
         if nextelem - elem > (variance_exp_cumsum[1] / 50):
             p_com.append(1)
     components = np.sum(p_com) + 1
-    print("Phase-it's qualified guesses of phases in the data are: "+str(components))
+    print("Phase splitter's qualified guesses of phases in the data are: "+str(components))
 
 def NMF_cal(x,Y,folder):
     nmf_com = int(input("Numbers of NMF components: "))
@@ -162,11 +163,11 @@ def NMF_cal(x,Y,folder):
     ax.set_yticklabels('')
     plt.legend(loc="upper right")
     plt.xlim(x[0],x[-1])
-    plt.savefig(root_path_results + "/"+folder + "/"  + 'NMF.png', format='png', dpi=300)
+    plt.savefig(root_path_results + "/"+folder+"_results" + "/"  + 'NMF.png', format='png', dpi=300)
 
     for i in range(np.shape(W)[1]):
         z = W.T[i]
-        np.savetxt(root_path_results + "/"+folder + "/"  + 'NMF_com_' + str(i + 1) + '.gr', np.column_stack([x, z]))
+        np.savetxt(root_path_results + "/"+folder+"_results" + "/"  + 'NMF_com_' + str(i + 1) + '.gr', np.column_stack([x, z]))
     return None
 def insitu_plot(x, y,folder):
     print("Making contour plot")
@@ -180,7 +181,7 @@ def insitu_plot(x, y,folder):
     thisPlot = plt.pcolormesh(X, Y, Z, cmap=cmap)
 
     plt.xlabel('r[Å]') #
-    plt.ylabel('Time [a.u]')
+    plt.ylabel('Frame')
 
     cbar = plt.colorbar(thisPlot, ticks=[0], aspect=10)
     mx = np.max(y)
@@ -195,10 +196,10 @@ def insitu_plot(x, y,folder):
     cbar_ax = fig.axes[-1]
 
     ax.set_xlabel('r[Å]')
-    ax.set_ylabel('Time [a.u]')  # ^{-1}
+    ax.set_ylabel('Frame')  # ^{-1}
 
     plt.tight_layout()
-    plt.savefig(root_path_results + "/"+folder + "/"  + 'insitu_plot.png', format='png', dpi=300)
+    plt.savefig(root_path_results + "/"+folder +"_results"+ "/"  + 'insitu_plot.png', format='png', dpi=300)
     return None
 
 def Dynamicgif(x,y,folder):
@@ -215,14 +216,14 @@ def Dynamicgif(x,y,folder):
     ax.set_ylabel('G(r) [a.u.]')  # ^{-1}
     animation = camera.animate()
     display(HTML(animation.to_html5_video()))
-    animation.save(root_path_results + "/"+folder + "/"  + 'dynamic_transition.gif', writer='ffmpeg', fps=60, dpi=100, metadata={'title': 'test'});
+    animation.save(root_path_results + "/"+folder +"_results"+ "/"  + 'dynamic_transition.gif', writer='ffmpeg', fps=60, dpi=100, metadata={'title': 'test'});
     return None
 
 def pearson_nmf(x,y,folder):
     NMF = []
     pear_corr = []
 
-    files = sorted(glob.glob(root_path_results + "/"+folder + "/"  + "/*.gr"))
+    files = sorted(glob.glob(root_path_results + "/"+folder+"_results" + "/"  + "/*.gr"))
 
     for pdf in files:
         PDF = np.loadtxt(pdf)
@@ -256,13 +257,13 @@ def pearson_nmf(x,y,folder):
     plt.legend(loc="upper right")
     plt.xlim(x[0], x[-1])
     plt.tight_layout()
-    plt.savefig(root_path_results + "/"+folder + "/" + 'nmf_pdf_relation.png', format='png', dpi=300)
+    plt.savefig(root_path_results + "/"+folder+"_results" + "/" + 'nmf_pdf_relation.png', format='png', dpi=300)
     return None
 def contour_nmf(x,y,folder):
     NMF = []
     pear_corr = []
 
-    files = sorted(glob.glob(root_path_results + "/"+folder + "/"  + "/*.gr"))
+    files = sorted(glob.glob(root_path_results + "/"+folder +"_results"+ "/"  + "/*.gr"))
 
     for pdf in files:
         PDF = np.loadtxt(pdf)
@@ -294,7 +295,7 @@ def contour_nmf(x,y,folder):
     thisPlot = plt.pcolormesh(X, Y, Z, cmap=cmap)
 
     plt.xlabel('r[Å]')  #
-    plt.ylabel('Time [min]')
+    plt.ylabel('Frame')
 
     cbar = plt.colorbar(thisPlot, ticks=[0], aspect=10)
     mx = np.max(y)
@@ -309,18 +310,18 @@ def contour_nmf(x,y,folder):
     cbar_ax = fig.axes[-1]
 
     ax.set_xlabel('r[Å]')
-    ax.set_ylabel('Time [a.u]')  # ^{-1}
-    color_cycle = ["b", "r", "g", "c", "m", "y", "k"]
+    ax.set_ylabel('Frame')  # ^{-1}
+    color_cycle = ["b", "g", "orange", "c", "m", "y", "k"]
     for i in range(len(line_list)):
         ax.hlines(line_list[i] - len(y) / 100, colors=color_cycle[i], lw=3, *ax.get_xlim())
 
     plt.tight_layout()
-    plt.savefig(root_path_results + "/" +folder + "/" + 'contour_nmf_relation.png', format='png', dpi=300)
+    plt.savefig(root_path_results + "/" +folder+"_results" + "/" + 'contour_nmf_relation.png', format='png', dpi=300)
     return None
 
 def plot_2(folder):
-    img1 = mpimg.imread(root_path_results + "/"+folder + "/" + 'contour_nmf_relation.png')
-    img2 = mpimg.imread(root_path_results + "/"+folder + "/" + 'nmf_pdf_relation.png')
+    img1 = mpimg.imread(root_path_results + "/"+folder+"_results" + "/" + 'contour_nmf_relation.png')
+    img2 = mpimg.imread(root_path_results + "/"+folder+"_results" + "/" + 'nmf_pdf_relation.png')
 
     f = plt.figure(figsize=(30, 12))
     ax = f.add_subplot(121)
