@@ -6,7 +6,7 @@ Welcome to Phase splitter, a non-negative matrix factorization to seperate the d
 The algorithms was used as part of the bachelor thesis "Phase-Splitter: An Automated Tool for phase identification and
 characterization of in situ Pair Distribution Function data." 
 
-Example of in situ data with multiple phase shifts and the resultant components from Phase splitter on the right. 
+Example of in situ data with multiple phase shifts to the left and the resultant NMF components from Phase splitter on the right. 
 ![12](https://user-images.githubusercontent.com/65853425/157948154-62826afd-76ca-4926-bec8-313124d36bc9.png)
 
 ## Getting Started (with colab)
