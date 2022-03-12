@@ -216,7 +216,7 @@ def Dynamicgif(x,y,folder):
     animation = camera.animate()
     plt.close()
     display(HTML(animation.to_html5_video()))
-    #animation.save(root_path_results + "/"+folder +"_results"+ "/"  + 'dynamic_transition.mp4', writer='ffmpeg', fps=60, dpi=100, metadata={'title': 'test'});
+    animation.save(root_path_results + "/"+folder +"_results"+ "/"  + 'dynamic_transition.mp4', writer='ffmpeg', fps=60, dpi=100, metadata={'title': 'test'});
     return None
 
 def pearson_nmf(x,y,folder):
