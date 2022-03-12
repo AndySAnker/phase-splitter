@@ -311,7 +311,7 @@ def contour_nmf(x,y,folder):
 
     ax.set_xlabel('r[Å]')
     ax.set_ylabel('Frame')  # ^{-1}
-    color_cycle = ["b", "g", "orange", "c", "m", "y", "k"]
+    color_cycle = ["b", "orange", "g", "c", "m", "y", "k"]
     for i in range(len(line_list)):
         ax.hlines(line_list[i] - len(y) / 100, colors=color_cycle[i], lw=3, *ax.get_xlim())
 
