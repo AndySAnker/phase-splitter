@@ -16,9 +16,8 @@ root_path_results = '/content/phase-splitter/results'
 def get_in_situ_data(path):
     folder = path.split('/')
     folder = folder[-1]
-    if not os.path.exists(root_path_results+"/"+folder+"_results"):
-        print("Name your results folder:")
-        os.makedirs(root_path_results+"/"+input())
+    if not os.path.exists(root_path_results+"/"+folder):
+        os.makedirs(root_path_results+"/"+folder)
     else:
         print("Folder name already taken")
         print("")
