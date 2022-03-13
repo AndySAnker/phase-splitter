@@ -53,7 +53,7 @@ Joakim Lajer (gpw395@alumni.ku.dk)
 
 ## License
 
-This project is not licensed (yet).
+This project is licensed under the GNU General Public License v3.0, January 2004 - see the [LICENS](phase-splitter/LICENS.md) file for details.
 
 ## Acknowledgments
 
