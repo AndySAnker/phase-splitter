@@ -9,7 +9,7 @@ characterization of in situ Pair Distribution Function data."
 Example of in situ data with multiple phase shifts to the left and the resultant NMF components from Phase splitter on the right. 
 ![12](https://user-images.githubusercontent.com/65853425/157948154-62826afd-76ca-4926-bec8-313124d36bc9.png)
 
-The GitHub contains a test dataset called "BiMsol06-neutral-M_A_1_1" which is captured at DESY by Andrea Kirsch, Post. Doc research scientist at the University of Copenhagen.
+The GitHub contains a test dataset called "insitu_sim" which is simulated PDFs of an Cu reduction synthesis from Cu(OH)_2 precursor.
 ## Getting Started (with colab)
 Using Phase splitter on your PDFs is straightforward and does not require anything installed or downloaded to your computer. Follow the instructions in the Colab notebook and try to play around.
 
