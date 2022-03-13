@@ -37,7 +37,7 @@ sklearn, scipy
 
 ### Executing program
 
-Open the notebook "phase-splitter.ipynb" in your favorit python interpreter.
+Open the notebook "phase-splitter.ipynb" in your favorit python interpreter and follow the instructions.
 
 ## Authors
 
