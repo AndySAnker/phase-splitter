@@ -24,7 +24,7 @@ The lite version is made to work on python 3.7 as a notebook with the following 
 
 For plots:
 
-matplotlib, seaborn, IPython.display, celluloid
+matplotlib, seaborn, IPython.display, celluloid, ffmpeg-python
 
 For data:
 
