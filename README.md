@@ -1,17 +1,17 @@
 # Phase splitter
-Welcome to Phase splitter, a non-negative matrix factorization to seperate the different phases in an in situ "PDF" data.
+Welcome to Phase splitter, a non-negative matrix factorization to separate the different phases in an in situ "PDF" data.
 
 ## Description
 
-The algorithms was used as part of the bachelor thesis "Phase-Splitter: An Automated Tool for phase identification and
+The algorithms were used as part of the bachelor thesis "Phase-Splitter: An Automated Tool for phase identification and
 characterization of in situ Pair Distribution Function data." 
 
 Example of in situ data with multiple phase shifts to the left and the resultant NMF components from Phase splitter on the right. 
 ![12](https://user-images.githubusercontent.com/65853425/157948154-62826afd-76ca-4926-bec8-313124d36bc9.png)
 
-The github contains a test dataset called "BiMsol06-neutral-M_A_1_1" which is captured at DESY by Andrea Kirsch, Post. Doc research scientist at University of Copenhagen.
+The GitHub contains a test dataset called "BiMsol06-neutral-M_A_1_1" which is captured at DESY by Andrea Kirsch, Post. Doc research scientist at the University of Copenhagen.
 ## Getting Started (with colab)
-Using Phase splitter on your own PDFs is straightforward and does not require anything installed or downloaded to your computer. Follow the instructions in the Colab notebook and try to play around.
+Using Phase splitter on your PDFs is straightforward and does not require anything installed or downloaded to your computer. Follow the instructions in the Colab notebook and try to play around.
 
 [Phase-splitter (Colab)](https://colab.research.google.com/drive/1ypGob83K4NawqdE_1lfQORmObUiLb89c?usp=sharing)
 
@@ -38,11 +38,11 @@ sklearn, scipy
 
 ### Executing program
 
-Open the notebook "phase-splitter.ipynb" in your favorit python interpreter and follow the instructions.
+Open the notebook "phase-splitter.ipynb" in your favorite python interpreter and follow the instructions.
 
 ## Authors
 
-Contributors names and contact info
+Contributors' names and contact info
 
 Joakim Lajer (gpw395@alumni.ku.dk)
 
